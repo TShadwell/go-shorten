@@ -31,7 +31,7 @@ Outputs:
 
 	Lengthens to: 14794393443.
 
-This package also includes a Rearrange method, which is not designed to be done often. 
+This package also includes a Rearrange method, which is not designed to be done quickly. 
 It is for making dictionaries that have particular phrases that eagle-eyed users can notice. Yes, an easter-egg function.
 	import (
 		"fmt"
@@ -39,7 +39,7 @@ It is for making dictionaries that have particular phrases that eagle-eyed users
 	)
 
 	const PHRASE = "Lorem ipsum dolor sit amet" 
-	const DICT = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!\"£$%^&*()abcdefghijklmnopqrstuvwxyz,.
+	const DICT = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!\"£$%^&*()abcdefghijklmnopqrstuvwxyz,."
 	func main(){
 		myDict := shorten.MakeDictionary(DICT)
 
@@ -157,11 +157,11 @@ It may also take a count as a uint which sends any alternate conversions back.
 */
 type Rearranger func(rune, uint8) (rune, rearrangeError)
 
-//FAIL stops rearranging immediately and returns the original dictionary and FAIL.
+//Fail stops rearranging immediately and returns the original dictionary and FAIL.
 //
-//CONVERTCASE inverts letter case.
+//Convertcase inverts letter case.
 //
-//CONVERTSPECIAL maps e to 3, Σ, £ etc.
+//Convertspecial maps e to 3, Σ, £ etc.
 var (
 	Fail           Rearranger = fail
 	Convertcase    Rearranger = convertcase
